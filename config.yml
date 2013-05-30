@@ -10,6 +10,7 @@ development:
   enable_plugins:
     - trivia
     - peat
+    - rolloff
 production:
   site: howaboutwe
   use_ssl: true
@@ -22,3 +23,5 @@ production:
   enable_plugins:
     - trivia
     - peat
+    - rolloff
+
