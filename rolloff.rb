@@ -7,12 +7,12 @@ class Rolloff < CampfireBot::Plugin
   SIDES_OF_A_DIE = 6
 
   def on_roll(msg)
-    next unless @fiber && @fiber.alive?
+    return unless @fiber && @fiber.alive?
 
     roll = rand(@limit) + 1
     nick = msg[:person]
 
-    next if @attempts[nick]
+    return if @attempts[nick]
 
     @attempts.merge!(nick => roll)
 
@@ -20,7 +20,7 @@ class Rolloff < CampfireBot::Plugin
   end
 
   def on_rolloff(msg)
-    next if @fiber && @fiber.alive?
+    return if @fiber && @fiber.alive?
 
     @limit = m[:message].strip.to_i
     @limit    = SIDES_OF_A_DIE if @limit < 2
