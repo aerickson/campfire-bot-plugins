@@ -4,6 +4,7 @@ class Trivia < CampfireBot::Plugin
   on_command 'trivia', :on_trivia_question
   on_command 'reveal', :on_trivia_reveal
   on_command 'answer', :on_trivia_answer
+  on_command 'again', :on_trivia_repeat
 
   def initialize
     @trivia_question_list = parse_trivia_questions
@@ -39,6 +40,14 @@ class Trivia < CampfireBot::Plugin
   end
 
   def on_trivia_reveal(m)
+    if @trivia_question
+      peat_sez(m, "Trivia[!answer to guess, !reveal to give up]: #{@trivia_question}")
+    else
+      peat_sez(m, "#{m[:person]} come on -- you need to generate a question with !trivia first...")
+    end
+  end
+
+  def on_trivia_repeat(m)
     if @trivia_question
       peat_sez(m, "#{@trivia_question} ==> #{@trivia_answers.first}")
     else
