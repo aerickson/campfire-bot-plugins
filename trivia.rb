@@ -41,7 +41,7 @@ class Trivia < CampfireBot::Plugin
 
   def on_trivia_reveal(m)
     if @trivia_question
-      peat_sez(m, "Trivia[!answer to guess, !reveal to give up]: #{@trivia_question}")
+      peat_sez(m, "Trivia[!answer to guess, !reveal to give up]: #{@trivia_question} ==> #{@trivia_answers.first}")
     else
       peat_sez(m, "#{m[:person]} come on -- you need to generate a question with !trivia first...")
     end
