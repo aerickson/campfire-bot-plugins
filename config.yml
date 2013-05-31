@@ -10,6 +10,7 @@ development:
   enable_plugins:
     - trivia
     - peat
+    - lttg
 production:
   site: howaboutwe
   use_ssl: true
@@ -22,4 +23,4 @@ production:
   enable_plugins:
     - trivia
     - peat
-
+    - lttg
